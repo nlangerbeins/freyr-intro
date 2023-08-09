@@ -44,8 +44,23 @@ messageForm.addEventListener('submit', (e) => {
     entry.remove();
   });
 
+  const editButton = document.createElement('button');
+  editButton.innerText = 'Edit';
+  editButton.setAttribute = ('type', 'button');
+  editButton.addEventListener('click', function () {
+    const entry = editButton.parentNode;
+    const span = entry.querySelector('span');
+    console.log(span);
+    const editedMessage = prompt('Edit the message:', span.textContent);
+    if (editedMessage !== null) {
+      span.textContent = editedMessage;
+    }
+  });
+
+  newMessage.appendChild(editButton);
   newMessage.appendChild(removeButton);
   messageList.appendChild(newMessage);
   console.log(messageSection);
+
   e.target.reset();
 });
