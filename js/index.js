@@ -70,11 +70,7 @@ messageForm.addEventListener('submit', (e) => {
   messageList.appendChild(newMessage);
 
   // Hide the #messages section when the list is empty
-  if (messageList.childElementCount === 0) {
-    messageSection.style.display = 'none';
-  } else {
-    messageSection.style.display = 'block';
-  }
+  messageSection.style.display = 'block';
 
   e.target.reset();
 });
