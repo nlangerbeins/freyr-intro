@@ -56,10 +56,8 @@ messageForm.addEventListener('submit', (e) => {
   editButton.innerText = 'edit';
   editButton.setAttribute = ('type', 'button');
   editButton.addEventListener('click', function () {
-    const entry = editButton.parentNode;
-    const span = entry.querySelector('span');
-
-    const editedMessage = prompt('Edit the message:', span.textContent);
+    const span = newMessage.querySelector('span');
+    const editedMessage = prompt('Edit your message:', span.textContent);
     if (editedMessage !== null) {
       span.textContent = editedMessage;
     }
