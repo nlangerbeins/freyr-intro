@@ -17,6 +17,8 @@ for (let i = 0; i < skills.length; i++) {
 }
 
 const messageForm = document.querySelector('[name="leave_message"]');
+const messageSection = document.querySelector('#messages');
+messageSection.style.display = 'none';
 
 messageForm.addEventListener('submit', (e) => {
   e.preventDefault();
@@ -24,11 +26,10 @@ messageForm.addEventListener('submit', (e) => {
   const usersName = e.target.usersName.value;
   const usersEmail = e.target.usersEmail.value;
   const usersMessage = e.target.usersMessage.value;
-  console.log(usersName);
-  console.log(usersEmail);
-  console.log(usersMessage);
+  //   console.log(usersName);
+  //   console.log(usersEmail);
+  //   console.log(usersMessage);
 
-  const messageSection = document.querySelector('#messages');
   const messageList = messageSection.querySelector('ul');
   const newMessage = document.createElement('li');
 
@@ -36,21 +37,28 @@ messageForm.addEventListener('submit', (e) => {
     wrote: <span>${usersMessage}</span>
   `;
 
+  // remove button
   const removeButton = document.createElement('button');
   removeButton.innerText = 'remove';
   removeButton.setAttribute('type', 'button');
   removeButton.addEventListener('click', () => {
     const entry = removeButton.parentNode;
     entry.remove();
+
+    // Hide the #messages section when the list is empty
+    if (messageList.childElementCount === 0) {
+      messageSection.style.display = 'none';
+    }
   });
 
+  // edit button
   const editButton = document.createElement('button');
-  editButton.innerText = 'Edit';
+  editButton.innerText = 'edit';
   editButton.setAttribute = ('type', 'button');
   editButton.addEventListener('click', function () {
     const entry = editButton.parentNode;
     const span = entry.querySelector('span');
-    console.log(span);
+
     const editedMessage = prompt('Edit the message:', span.textContent);
     if (editedMessage !== null) {
       span.textContent = editedMessage;
@@ -60,7 +68,13 @@ messageForm.addEventListener('submit', (e) => {
   newMessage.appendChild(editButton);
   newMessage.appendChild(removeButton);
   messageList.appendChild(newMessage);
-  console.log(messageSection);
+
+  // Hide the #messages section when the list is empty
+  if (messageList.childElementCount === 0) {
+    messageSection.style.display = 'none';
+  } else {
+    messageSection.style.display = 'block';
+  }
 
   e.target.reset();
 });
