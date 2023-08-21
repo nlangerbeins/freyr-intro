@@ -2,6 +2,11 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  color: #141414;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 a {
@@ -20,17 +25,17 @@ li {
 }
 
 .even {
-  background-color: #f2f2f2;
+  background-color: #f3f3f3;
 }
 
 /*------ Header -------*/
 header {
   width: 100%;
-  background-color: rgba(209, 214, 214, 0.4);
+  background-color: rgba(225, 225, 225, 0.6);
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 1;
+  z-index: 10;
 }
 
 nav {
@@ -50,12 +55,7 @@ nav {
 }
 
 .nav-items li {
-  list-style-type: none;
   text-transform: uppercase;
-}
-
-.nav-items li a {
-  color: #000;
 }
 
 .nav-logo {
@@ -85,24 +85,26 @@ main {
 }
 
 .titel-bg-black {
-  background-color: #000;
+  background-color: #141414;
   width: 50%;
   height: 100%;
   display: flex;
   justify-content: end;
   align-items: center;
-  color: #f2f2f2;
   position: relative;
 }
 
 .titel-bg-white {
-  background-color: #f2f2f2;
+  background-color: #f3f3f3;
   width: 50%;
   height: 100%;
-  color: #000;
   display: flex;
   align-items: center;
   position: relative;
+}
+
+.titel-bg-black p {
+  color: #fff;
 }
 
 .titel-bg-black p,
@@ -111,16 +113,15 @@ main {
   text-transform: uppercase;
   padding: 0px 30px 400px;
   position: absolute;
-  top: 55%;
+  top: 60%;
 }
 
 .titel-bg-white h2 {
   position: absolute;
-  top: 63%;
+  top: 68%;
   padding: 0 0 0 155px;
   font-size: 24px;
   font-style: italic;
-  color: #000;
 }
 
 .titel-photo {
@@ -223,7 +224,7 @@ main {
   border: none;
   border-radius: 50px;
   padding: 5px 10px;
-  background: #f2f2f2;
+  background: #f3f3f3;
   text-transform: uppercase;
   position: relative;
   width: 180px;
@@ -238,7 +239,7 @@ main {
   position: absolute;
   top: 50% - 8px;
   left: 35px;
-  color: #000;
+  color: #141414;
 }
 
 /* -------- Footer --------- */
