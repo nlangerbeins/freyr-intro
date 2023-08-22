@@ -163,7 +163,11 @@ main {
   display: flex;
   justify-content: center;
   margin: 0 auto;
-  padding: 100px 80px;
+  padding: 150px 80px;
+}
+
+.section:last-of-type {
+  padding: 150px 80px 100px;
 }
 
 .section-name {
@@ -215,7 +219,19 @@ main {
   width: 40px;
 }
 
-/*-------- Form ----------*/
+/*--------- Contact -----------*/
+.section-content h2 {
+  font-size: 36px;
+}
+
+.section-content .contact-text {
+  font-size: 20px;
+  margin: 15px 0 70px;
+}
+
+#btn-contact {
+  margin: 100px 0 200px 0;
+}
 
 .btn-contact button {
   display: flex;
@@ -227,19 +243,71 @@ main {
   background: #f3f3f3;
   text-transform: uppercase;
   position: relative;
-  width: 180px;
-  box-shadow: 5px 5px 5px rgb(213, 213, 213);
+  width: 200px;
+  box-shadow: 5px 5px 5px #8e8e8e;
 }
 
 .btn-contact button:hover {
   cursor: pointer;
+
+  background: #f8f8f8;
+  transform: translateX(5px);
+  transition: all 1s ease;
 }
 
 .btn-contact button span {
   position: absolute;
   top: 50% - 8px;
   left: 35px;
+  /* color: #141414; */
+}
+
+/*-------- Form ----------*/
+#contact-form {
+  display: none;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 500px;
+}
+
+input,
+textarea {
+  font-size: 16px;
+  border-width: 0 0 1px;
+  border-color: #141414;
+  background: none;
+  outline: none;
+  padding: 20px 0 20px 10px;
+}
+
+input:focus,
+textarea:focus {
+  border-color: #fff;
+  border-width: 0 0 2px;
+  color: #fff;
+  background: #b0e1b0;
+}
+
+textarea {
+  resize: none;
+  height: 200px;
+  line-height: 150%;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+input::placeholder,
+textarea::placeholder {
   color: #141414;
+  caret-color: #fff;
+  opacity: 1;
+}
+
+form .btn-contact {
+  align-self: flex-end;
 }
 
 /* -------- Footer --------- */
