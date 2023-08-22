@@ -49,6 +49,14 @@ nav {
   padding: 20px 80px 5px;
 }
 
+.nav-logo {
+  font-size: 50px;
+}
+
+.nav-logo a {
+  color: #fff;
+}
+
 .nav-items {
   display: flex;
   gap: 30px;
@@ -56,14 +64,6 @@ nav {
 
 .nav-items li {
   text-transform: uppercase;
-}
-
-.nav-logo {
-  font-size: 50px;
-}
-
-.nav-logo a {
-  color: #fff;
 }
 
 /*---------- Titel -----------*/
