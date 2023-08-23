@@ -156,6 +156,24 @@ main {
   width: 32px;
 }
 
+/*-------- Scroll to Top ---------*/
+.btn-scroll {
+  display: none;
+  position: fixed;
+  bottom: 130px;
+  right: -20px;
+  transform: rotate(-90deg);
+  cursor: pointer;
+}
+
+.btn-scroll button {
+  border: none;
+  background: none;
+  text-transform: uppercase;
+  padding: 0 15px 0 0;
+  font-size: 12px;
+}
+
 /*--------- About -------------*/
 .section {
   width: 100%;
@@ -221,11 +239,11 @@ main {
 
 /*--------- Contact -----------*/
 .section-content h2 {
-  font-size: 36px;
+  font-size: 50px;
 }
 
 .section-content .contact-text {
-  font-size: 20px;
+  font-size: 24px;
   margin: 15px 0 70px;
 }
 
@@ -249,7 +267,6 @@ main {
 
 .btn-contact button:hover {
   cursor: pointer;
-
   background: #f8f8f8;
   transform: translateX(5px);
   transition: all 1s ease;
@@ -259,7 +276,6 @@ main {
   position: absolute;
   top: 50% - 8px;
   left: 35px;
-  /* color: #141414; */
 }
 
 /*-------- Form ----------*/
