@@ -54,13 +54,15 @@ messageForm.addEventListener('submit', (e) => {
   const messageList = messageSection.querySelector('ul');
   const newMessage = document.createElement('li');
 
-  newMessage.innerHTML = `<a href="mailto:${usersEmail}">${usersName}</a>
-    wrote: <span>${usersMessage}</span>
+  newMessage.innerHTML = `<a href="mailto:${usersEmail}">${usersName}
+   wrote:</a>
+    <span>${usersMessage}</span>
   `;
 
   // remove button
   const removeButton = document.createElement('button');
   removeButton.innerText = 'remove';
+  removeButton.classList.add('btn-remove');
   removeButton.setAttribute('type', 'button');
   removeButton.addEventListener('click', () => {
     const entry = removeButton.parentNode;
@@ -75,6 +77,7 @@ messageForm.addEventListener('submit', (e) => {
   // edit button
   const editButton = document.createElement('button');
   editButton.innerText = 'edit';
+  editButton.classList.add('btn-edit');
   editButton.setAttribute = ('type', 'button');
   editButton.addEventListener('click', function () {
     const span = newMessage.querySelector('span');
@@ -89,16 +92,14 @@ messageForm.addEventListener('submit', (e) => {
   messageList.appendChild(newMessage);
 
   // Hide the #messages section when the list is empty
-  messageSection.style.display = 'block';
+  messageSection.style.display = 'flex';
 
   e.target.reset();
 });
 
 // Scroll to top Button
 const btnScrollToTop = document.querySelector('.btn-scroll');
-window.onscroll = function () {
-  scrollFunction();
-};
+window.addEventListener('scroll', scrollFunction);
 
 function scrollFunction() {
   if (
@@ -110,6 +111,7 @@ function scrollFunction() {
     btnScrollToTop.style.display = 'none';
   }
 }
+
 btnScrollToTop.addEventListener('click', () => {
   document.body.scrollTop = 0;
   document.documentElement.scrollTop = 0;
