@@ -1,25 +1,178 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfolio</title>
-</head>
-<body>
-    <h1>Natallia Langerbeins</h1>
-    <section>
-        <h2>About</h2>
-        <p>I'm Natallia Langerbeins. A passionate web-developer based in Düsseldorf</p>
-        <p>Coding became my passion. I love to create beautifully designed, intuitive, functional websites and apps.</p>
-    </section>
-    <section>
-        <h2>Experience</h2>
-        <p>Today I'm a web-developer with hands-on experience in designing, building and deploying responsive web applications.</p>
-    </section>
-    <section>
-        <h2>Connect</h2>
-        <p>Want to work together or have any questions?</p>
-        <a href="https://github.com/nlangerbeins" target="_blank">My Github</a>
-    </section>
-</body>
+    <link rel="stylesheet" href="css/index.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <!-- Header -->
+      <header>
+        <nav>
+          <div class="nav-logo">
+            <a href="/">NL</a>
+          </div>
+          <ul class="nav-items">
+            <li><a href="#about">about</a></li>
+            <li><a href="#skills">skills</a></li>
+            <li><a href="#projects">projects</a></li>
+            <li><a href="#contact">contact</a></li>
+          </ul>
+          <!-- Hamburger Button -->
+          <!-- <div class="nav-btn"></div> -->
+        </nav>
+      </header>
+      <main>
+        <!-- Titel -->
+        <section class="titel">
+          <div class="titel-bg">
+            <div class="titel-bg-black">
+              <p>Natallia</p>
+            </div>
+            <div class="titel-bg-white">
+              <p>Langerbeins</p>
+              <h2>Web-developer</h2>
+            </div>
+          </div>
+          <div class="titel-photo">
+            <img src="./img/photo.svg" alt="line art photo" />
+          </div>
+          <ul class="social-icons">
+            <a href="https://github.com/nlangerbeins" target="_blank">
+              <img src="./img/icons/github.svg" alt="github" />
+            </a>
+            <a href="https://www.linkedin.com" target="_blank">
+              <img src="./img/icons/linkedin.svg" alt="linkedin" />
+            </a>
+            <a href="https://www.instagram.com" target="_blank">
+              <img src="./img/icons/instagram.svg" alt="instagram" />
+            </a>
+          </ul>
+        </section>
+        <!-- Scroll to top button -->
+        <div class="btn-scroll">
+          <button>Scroll to top</button>
+          <img src="./img/arrow.svg" alt="arrow" />
+        </div>
+        <!-- About -->
+        <section id="about" class="odd">
+          <div class="section">
+            <div class="section-name">
+              <p>01</p>
+              <p class="section-heading">about</p>
+              <img src="./img/substract.svg" alt="circle" />
+            </div>
+            <div class="section-content">
+              <p>
+                My name is Natallia, and I am an ambitious front-end developer
+                with a passion for web design and a keen eye for detail. I build
+                fast and interactive websites with clean, modern designs that
+                are optimized for performance and search engines. Creating
+                elegant and professional user interfaces and websites has become
+                my passion. Not only do I enjoy developing web applications, but
+                I also find great satisfaction in designing and creating
+                user-friendly experiences. In my spare time, I continue to
+                learn, with the goal of reaching the next level and becoming a
+                Full Stack Developer.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Skills -->
+        <section id="skills" class="even">
+          <div class="section">
+            <div class="section-name">
+              <p>02</p>
+              <p class="section-heading">skills</p>
+              <img src="./img/substract.svg" alt="circle" />
+            </div>
+            <div class="section-content">
+              <ul class="skills"></ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- Projects -->
+        <section id="projects" class="odd">
+          <div class="section">
+            <div class="section-name">
+              <p>03</p>
+              <p class="section-heading">Projects</p>
+              <img src="./img/substract.svg" alt="circle" />
+            </div>
+            <div class="section-content">
+              <p>My projects</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Contact -->
+        <section id="contact" class="even">
+          <div class="section">
+            <div class="section-name">
+              <p>04</p>
+              <p class="section-heading">Contact</p>
+              <img src="./img/substract.svg" alt="circle" />
+            </div>
+            <div class="section-content">
+              <h2>Let’s work together.</h2>
+              <p class="contact-text">
+                Want to work together or have any questions?
+              </p>
+              <div class="btn-contact">
+                <button type="submit" id="btn-contact">
+                  <img src="./img/ellipse.svg" alt="circle" />
+                  <span>contact me</span>
+                  <img src="./img/arrow.svg" alt="arrow" />
+                </button>
+              </div>
+              <div id="contact-form">
+                <form name="leave_message">
+                  <input
+                    type="text"
+                    id="usersName"
+                    name="usersName"
+                    placeholder="Name"
+                    required
+                  />
+                  <input
+                    type="email"
+                    id="usersEmail"
+                    name="usersEmail"
+                    placeholder="Email"
+                    required
+                  />
+                  <textarea
+                    name="usersMessage"
+                    id="usersMessage"
+                    cols="30"
+                    rows="10"
+                    placeholder="Message"
+                    required
+                  ></textarea>
+                  <div class="btn-contact">
+                    <button type="submit" id="btn-send">
+                      <img src="./img/ellipse.svg" alt="circle" />
+                      <span>send message</span>
+                      <img src="./img/arrow.svg" alt="arrow" />
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <section id="messages">
+            <h2>Messages</h2>
+            <ul></ul>
+          </section>
+        </section>
+      </main>
+      <!-- Footer -->
+      <footer class="even"></footer>
+    </div>
+    <script src="js/index.js"></script>
+  </body>
 </html>

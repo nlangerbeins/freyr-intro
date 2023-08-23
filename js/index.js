@@ -1,21 +1,42 @@
+// footer: get full year
 const today = new Date();
 const thisYear = today.getFullYear();
 
 const footer = document.querySelector('footer');
 const copyright = document.createElement('p');
-copyright.innerHTML = `Natallia Langerbeins ${thisYear}`;
+copyright.innerHTML = `&copy; Natallia Langerbeins ${thisYear}`;
 footer.appendChild(copyright);
 
-const skills = ['HTML', 'CSS', 'JavaScript'];
+// skills list
+const skills = [
+  { skill: 'HTML', img: './img/icons/html.svg' },
+  { skill: 'API', img: './img/icons/api.svg' },
+  { skill: 'CSS', img: './img/icons/css.svg' },
+  { skill: 'Figma', img: './img/icons/figma.svg' },
+  { skill: 'Javascript', img: './img/icons/js.svg' },
+  { skill: 'Adobe Photoshop', img: './img/icons/photoshop.svg' },
+  { skill: 'GSAP', img: './img/icons/gsap.png' },
+];
+
 const skillsSection = document.querySelector('#skills');
 const skillsList = skillsSection.querySelector('ul');
 
 for (let i = 0; i < skills.length; i++) {
   const skill = document.createElement('li');
-  skill.innerText = skills[i];
+  skill.innerHTML = `<img src='${skills[i].img}'> ${skills[i].skill}`;
+  skill.classList.add('skill');
   skillsList.appendChild(skill);
 }
 
+// contact form
+const btnContact = document.querySelector('#btn-contact');
+btnContact.addEventListener('click', () => {
+  const contactForm = document.querySelector('#contact-form');
+  contactForm.style.display = 'block';
+  btnContact.style.display = 'none';
+});
+
+// form: leave a message
 const messageForm = document.querySelector('[name="leave_message"]');
 const messageSection = document.querySelector('#messages');
 messageSection.style.display = 'none';
@@ -71,4 +92,25 @@ messageForm.addEventListener('submit', (e) => {
   messageSection.style.display = 'block';
 
   e.target.reset();
+});
+
+// Scroll to top Button
+const btnScrollToTop = document.querySelector('.btn-scroll');
+window.onscroll = function () {
+  scrollFunction();
+};
+
+function scrollFunction() {
+  if (
+    document.body.scrollTop > 400 ||
+    document.documentElement.scrollTop > 400
+  ) {
+    btnScrollToTop.style.display = 'block';
+  } else {
+    btnScrollToTop.style.display = 'none';
+  }
+}
+btnScrollToTop.addEventListener('click', () => {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
 });
