@@ -116,3 +116,15 @@ btnScrollToTop.addEventListener('click', () => {
   document.body.scrollTop = 0;
   document.documentElement.scrollTop = 0;
 });
+
+// Header Background change on scroll
+console.log(window.innerHeight);
+window.addEventListener('scroll', () => {
+  if (window.scrollY >= window.innerHeight - 50) {
+    document.querySelector('header').classList.add('active');
+    document.querySelector('.nav-logo').classList.add('logo-active');
+  } else {
+    document.querySelector('header').classList.remove('active');
+    document.querySelector('.nav-logo').classList.remove('logo-active');
+  }
+});
