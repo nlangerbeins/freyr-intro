@@ -198,9 +198,12 @@ main {
   margin: 0 0 30px 20px;
 }
 
-.social-icons img,
-.social-footer img {
+.social-icons img {
   width: 32px;
+}
+
+.social-footer {
+  display: none;
 }
 
 /*-------- Scroll to Top ---------*/
