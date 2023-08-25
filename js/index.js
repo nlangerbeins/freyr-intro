@@ -128,3 +128,24 @@ window.addEventListener('scroll', () => {
     document.querySelector('.nav-logo').classList.remove('logo-active');
   }
 });
+
+// Hamburger Button
+const hamburger = document.querySelector('.hamburger');
+const navMenu = document.querySelector('.nav-menu');
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('open');
+  navMenu.classList.toggle('open');
+});
+
+const links = document.querySelectorAll('.nav-link');
+links.forEach((link) =>
+  link.addEventListener('click', function () {
+    hamburger.classList.remove('open');
+    navMenu.classList.remove('open');
+  })
+);
+
+document.querySelector('.nav-logo').addEventListener('click', () => {
+  hamburger.classList.remove('open');
+  navMenu.classList.remove('open');
+});

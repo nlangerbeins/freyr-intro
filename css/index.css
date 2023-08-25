@@ -38,7 +38,7 @@ header {
 }
 
 .active {
-  background-color: rgba(225, 225, 225, 0.6);
+  background-color: rgba(225, 225, 225, 0.8);
 }
 
 nav {
@@ -52,12 +52,13 @@ nav {
   padding: 20px 80px 5px;
 }
 
-.nav-items {
+.nav-menu {
   display: flex;
+  /* align-items: center; */
   gap: 30px;
 }
 
-.nav-items li {
+.nav-menu li {
   text-transform: uppercase;
   font-family: 'lust-sans', sans-serif;
   font-weight: 400;
@@ -70,6 +71,31 @@ nav {
   font-weight: 900;
   font-style: normal;
 }
+
+/*---------- Hamburger button ------------*/
+.nav-link {
+  transition: 0.5s ease;
+}
+
+.nav-link:hover {
+  color: #8e8e8e;
+}
+
+.hamburger {
+  display: none;
+  cursor: pointer;
+}
+
+.bar {
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  background: black;
+}
+
+/*----------------------------------------*/
 
 .nav-logo a {
   color: #fff;
@@ -165,7 +191,7 @@ main {
   position: fixed;
   top: 40vh;
   left: 0;
-  z-index: 6;
+  z-index: 11;
 }
 
 .social-icons a {
@@ -544,7 +570,72 @@ footer {
   }
 }
 
-/*------ Mobile version -------*/
+/*------ Hamburger button ----------*/
+@media all and (max-width: 930px) {
+  .bar {
+    display: block;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .hamburger.open .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.open .bar:nth-child(1) {
+    transform: rotate(45deg) translateY(11.5px);
+  }
+
+  .hamburger.open .bar:nth-child(3) {
+    transform: rotate(-45deg) translateY(-11.5px);
+  }
+
+  .nav-menu {
+    position: fixed;
+    right: -100%;
+    top: 70px;
+    height: 100vh;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    background: #141414;
+    transition: 0.3s;
+  }
+
+  .nav-item {
+    padding: 80px 0 10px;
+  }
+
+  .nav-link {
+    color: white;
+  }
+
+  .nav-menu.open {
+    right: 0;
+  }
+
+  /*--------------Social icons----------------*/
+  .social-icons {
+    display: flex;
+    flex-direction: row;
+    position: fixed;
+    top: 30px;
+    left: calc(50% - 125px);
+    z-index: 11;
+  }
+
+  .social-icons a {
+    margin: 0 0 0px 40px;
+  }
+
+  .social-icons img {
+    width: 30px;
+  }
+}
+
+/*-------------- Mobile version -------------*/
 @media all and (max-width: 760px) {
   nav {
     padding: 20px 30px 5px;
@@ -711,13 +802,12 @@ footer {
     padding: 3px 0 0;
     font-size: 16px;
   }
+  .social-icons {
+    left: calc(50% - 75px);
+  }
 
-  /*---------- Button Contact me Mobile Version ------------*/
-  .contact-mobile {
-    display: flex;
-    position: absolute;
-    top: 90%;
-    left: 30px;
+  .social-icons a {
+    margin: 0 0 0px 20px;
   }
 
   #btn-contact .contact-mobile {
