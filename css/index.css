@@ -198,7 +198,8 @@ main {
   margin: 0 0 30px 20px;
 }
 
-.social-icons img {
+.social-icons img,
+.social-footer img {
   width: 32px;
 }
 
@@ -802,12 +803,24 @@ footer {
     padding: 3px 0 0;
     font-size: 16px;
   }
+
   .social-icons {
-    left: calc(50% - 75px);
+    display: none;
   }
 
-  .social-icons a {
-    margin: 0 0 0px 20px;
+  .social-footer {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background: #f3f3f3;
+  }
+
+  .social-footer a {
+    margin: 0 10px 10px;
+  }
+
+  .social-footer img {
+    width: 25px;
   }
 
   #btn-contact .contact-mobile {
