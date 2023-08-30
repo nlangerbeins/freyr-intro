@@ -1,21 +1,42 @@
+// footer: get full year
 const today = new Date();
 const thisYear = today.getFullYear();
 
 const footer = document.querySelector('footer');
 const copyright = document.createElement('p');
-copyright.innerHTML = `Natallia Langerbeins ${thisYear}`;
+copyright.innerHTML = `&copy; Natallia Langerbeins ${thisYear}`;
 footer.appendChild(copyright);
 
-const skills = ['HTML', 'CSS', 'JavaScript'];
+// skills list
+const skills = [
+  { skill: 'HTML', img: './img/icons/html.svg' },
+  { skill: 'API', img: './img/icons/api.svg' },
+  { skill: 'CSS', img: './img/icons/css.svg' },
+  { skill: 'Figma', img: './img/icons/figma.svg' },
+  { skill: 'Javascript', img: './img/icons/js.svg' },
+  { skill: 'Adobe Photoshop', img: './img/icons/photoshop.svg' },
+  { skill: 'GSAP', img: './img/icons/gsap.png' },
+];
+
 const skillsSection = document.querySelector('#skills');
 const skillsList = skillsSection.querySelector('ul');
 
 for (let i = 0; i < skills.length; i++) {
   const skill = document.createElement('li');
-  skill.innerText = skills[i];
+  skill.innerHTML = `<img src='${skills[i].img}'> ${skills[i].skill}`;
+  skill.classList.add('skill');
   skillsList.appendChild(skill);
 }
 
+// contact form
+const btnContact = document.querySelector('#btn-contact');
+btnContact.addEventListener('click', () => {
+  const contactForm = document.querySelector('#contact-form');
+  contactForm.style.display = 'block';
+  btnContact.style.display = 'none';
+});
+
+// form: leave a message
 const messageForm = document.querySelector('[name="leave_message"]');
 const messageSection = document.querySelector('#messages');
 messageSection.style.display = 'none';
@@ -33,13 +54,15 @@ messageForm.addEventListener('submit', (e) => {
   const messageList = messageSection.querySelector('ul');
   const newMessage = document.createElement('li');
 
-  newMessage.innerHTML = `<a href="mailto:${usersEmail}">${usersName}</a>
-    wrote: <span>${usersMessage}</span>
+  newMessage.innerHTML = `<a href="mailto:${usersEmail}">${usersName}
+   wrote:</a>
+    <span>${usersMessage}</span>
   `;
 
   // remove button
   const removeButton = document.createElement('button');
   removeButton.innerText = 'remove';
+  removeButton.classList.add('btn-remove');
   removeButton.setAttribute('type', 'button');
   removeButton.addEventListener('click', () => {
     const entry = removeButton.parentNode;
@@ -54,6 +77,7 @@ messageForm.addEventListener('submit', (e) => {
   // edit button
   const editButton = document.createElement('button');
   editButton.innerText = 'edit';
+  editButton.classList.add('btn-edit');
   editButton.setAttribute = ('type', 'button');
   editButton.addEventListener('click', function () {
     const span = newMessage.querySelector('span');
@@ -68,7 +92,60 @@ messageForm.addEventListener('submit', (e) => {
   messageList.appendChild(newMessage);
 
   // Hide the #messages section when the list is empty
-  messageSection.style.display = 'block';
+  messageSection.style.display = 'flex';
 
   e.target.reset();
+});
+
+// Scroll to top Button
+const btnScrollToTop = document.querySelector('.btn-scroll');
+window.addEventListener('scroll', scrollFunction);
+
+function scrollFunction() {
+  if (
+    document.body.scrollTop > 400 ||
+    document.documentElement.scrollTop > 400
+  ) {
+    btnScrollToTop.style.display = 'block';
+  } else {
+    btnScrollToTop.style.display = 'none';
+  }
+}
+
+btnScrollToTop.addEventListener('click', () => {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+});
+
+// Header Background change on scroll
+console.log(window.innerHeight);
+window.addEventListener('scroll', () => {
+  if (window.scrollY >= window.innerHeight - 50) {
+    document.querySelector('header').classList.add('active');
+    document.querySelector('.nav-logo').classList.add('logo-active');
+  } else {
+    document.querySelector('header').classList.remove('active');
+    document.querySelector('.nav-logo').classList.remove('logo-active');
+  }
+});
+
+// Hamburger Button
+const hamburger = document.querySelector('.hamburger');
+const navMenu = document.querySelector('.nav-menu');
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('open');
+  navMenu.classList.toggle('open');
+});
+
+const links = document.querySelectorAll('.nav-link');
+links.forEach((link) =>
+  link.addEventListener('click', function () {
+    hamburger.classList.remove('open');
+    navMenu.classList.remove('open');
+  })
+);
+
+document.querySelector('.nav-logo').addEventListener('click', () => {
+  hamburger.classList.remove('open');
+  navMenu.classList.remove('open');
 });
