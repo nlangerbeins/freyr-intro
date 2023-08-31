@@ -149,3 +149,42 @@ document.querySelector('.nav-logo').addEventListener('click', () => {
   hamburger.classList.remove('open');
   navMenu.classList.remove('open');
 });
+
+// Projects
+window.addEventListener('DOMContentLoaded', function () {
+  const githubRequest = new XMLHttpRequest();
+  const projectSection = document.querySelector('#projects');
+  const projectList = projectSection.querySelector('ul');
+
+  githubRequest.addEventListener('load', () => {
+    const repositories = JSON.parse(githubRequest.responseText);
+
+    console.log(arrOfProjects(repositories));
+
+    for (let i = 0; i < arrOfProjects(repositories).length; i++) {
+      const project = document.createElement('li');
+
+      let projectName = arrOfProjects(repositories)[i][0];
+      let projectUrl = arrOfProjects(repositories)[i][1];
+
+      projectName = projectName.split('').slice(3).join('');
+      projectName =
+        projectName[0].toUpperCase() +
+        projectName.slice(1).replaceAll('-', ' ');
+
+      project.innerHTML = `<a href="${projectUrl}" target="_blank">${projectName}</a>`;
+      projectList.appendChild(project);
+    }
+  });
+  githubRequest.open('GET', 'https://api.github.com/users/nlangerbeins/repos');
+  githubRequest.send();
+});
+
+function arrOfProjects(repo) {
+  const arr = [];
+  for (let i in repo) {
+    arr.push([repo[i].name, repo[i].html_url]);
+  }
+  const arrFiltered = arr.filter((i) => i[0].startsWith('js'));
+  return arrFiltered;
+}
