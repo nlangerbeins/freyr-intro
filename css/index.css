@@ -60,8 +60,8 @@ nav {
 
 .nav-menu li {
   text-transform: uppercase;
-  font-family: 'lust-sans', sans-serif;
-  font-weight: 400;
+  font-family: 'scotch-display', sans-serif;
+  font-weight: 500;
   font-style: normal;
 }
 
@@ -241,13 +241,17 @@ main {
 
 .section-name {
   display: flex;
-  align-items: flex-start;
   width: 40%;
   position: relative;
   font-size: 18px;
-  font-family: 'lust-sans', sans-serif;
-  font-weight: 400;
+  font-family: 'operetta-12', serif;
+  font-weight: 500;
   font-style: normal;
+}
+
+.section-name p {
+  font-size: 24px;
+  margin: -10px 0;
 }
 
 .section-name img {
@@ -267,7 +271,7 @@ main {
   font-size: 16px;
   padding: 0 0 0 30px;
   text-transform: uppercase;
-  font-family: 'lust-sans', sans-serif;
+  font-family: 'operetta-12', serif;
   font-weight: 500;
   font-style: normal;
 }
@@ -721,6 +725,11 @@ footer {
     width: 100%;
   }
 
+  .section-name p {
+    font-size: 24px;
+    margin: -4px 0 0;
+  }
+
   .section-name img {
     display: none;
   }
@@ -807,6 +816,7 @@ footer {
   footer {
     padding: 10px 0;
     font-size: 12px;
+    font-weight: 300;
   }
 }
 
