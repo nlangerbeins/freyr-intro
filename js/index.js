@@ -118,7 +118,6 @@ btnScrollToTop.addEventListener('click', () => {
 });
 
 // Header Background change on scroll
-console.log(window.innerHeight);
 window.addEventListener('scroll', () => {
   if (window.scrollY >= window.innerHeight - 50) {
     document.querySelector('header').classList.add('active');
