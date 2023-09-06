@@ -377,7 +377,7 @@ main {
   text-transform: uppercase;
   font-size: 18px;
   font-family: 'lust-sans', sans-serif;
-  font-weight: 400;
+  font-weight: 500;
   font-style: normal;
 }
 
@@ -465,7 +465,8 @@ textarea {
 textarea,
 input[type='text'],
 input[type='button'],
-input[type='submit'] {
+input[type='submit'],
+input[type='email'] {
   -webkit-appearance: none;
   border-radius: 0;
   -webkit-border-radius: 0px;
