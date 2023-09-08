@@ -150,40 +150,42 @@ document.querySelector('.nav-logo').addEventListener('click', () => {
 });
 
 // Projects
+const projectSection = document.querySelector('#projects');
+const projectList = projectSection.querySelector('ul');
+const projectSectionContent = projectSection.querySelector('.section-content');
+
 window.addEventListener('DOMContentLoaded', function () {
-  const githubRequest = new XMLHttpRequest();
-  const projectSection = document.querySelector('#projects');
-  const projectList = projectSection.querySelector('ul');
+  fetch('https://api.github.com/users/nlangerbeins/repos')
+    .then((response) => response.json())
+    // .then((response) => console.log(response));
+    .then((repositories) => {
+      for (let i = 0; i < arrOfProjects(repositories).length; i++) {
+        const project = document.createElement('li');
 
-  githubRequest.addEventListener('load', () => {
-    const repositories = JSON.parse(githubRequest.responseText);
+        let projectName = arrOfProjects(repositories)[i][0];
+        let projectUrl = arrOfProjects(repositories)[i][1];
 
-    console.log(arrOfProjects(repositories));
+        projectName = projectName.split('').slice(3).join('');
+        projectName =
+          projectName[0].toUpperCase() +
+          projectName.slice(1).replaceAll('-', ' ');
 
-    for (let i = 0; i < arrOfProjects(repositories).length; i++) {
-      const project = document.createElement('li');
-
-      let projectName = arrOfProjects(repositories)[i][0];
-      let projectUrl = arrOfProjects(repositories)[i][1];
-
-      projectName = projectName.split('').slice(3).join('');
-      projectName =
-        projectName[0].toUpperCase() +
-        projectName.slice(1).replaceAll('-', ' ');
-
-      project.innerHTML = `<a href="${projectUrl}" target="_blank">${projectName}</a>`;
-      projectList.appendChild(project);
-    }
-  });
-  githubRequest.open('GET', 'https://api.github.com/users/nlangerbeins/repos');
-  githubRequest.send();
+        project.innerHTML = `<a href="${projectUrl}" target="_blank">${projectName}</a>`;
+        projectList.appendChild(project);
+      }
+    })
+    .catch((error) => {
+      console.log('error');
+      const errorProject = this.document.createElement('p');
+      errorProject.innerText =
+        'Oops... Something went wrong. Please, try again later!';
+      projectSectionContent.appendChild(errorProject);
+    });
 });
 
 function arrOfProjects(repo) {
   const arr = [];
-  for (let i in repo) {
-    arr.push([repo[i].name, repo[i].html_url]);
-  }
+  repo.forEach((project) => arr.push([project.name, project.html_url]));
   const arrFiltered = arr.filter((i) => i[0].startsWith('js'));
   return arrFiltered;
 }

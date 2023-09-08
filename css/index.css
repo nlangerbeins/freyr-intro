@@ -28,7 +28,7 @@ li {
   background-color: #f3f3f3;
 }
 
-/*------ Header -------*/
+/*------------------------------ Header --------------------------------*/
 header {
   width: 100%;
   position: fixed;
@@ -72,7 +72,7 @@ nav {
   font-style: normal;
 }
 
-/*---------- Hamburger button ------------*/
+/*----------------------------- Hamburger button ----------------------------------*/
 .nav-link {
   transition: 0.5s ease;
 }
@@ -105,7 +105,7 @@ nav {
   color: #141414;
 }
 
-/*---------- Titel -----------*/
+/*---------------------------------- Titel -----------------------------------*/
 main {
   width: 100%;
 }
@@ -184,7 +184,7 @@ main {
   display: block;
 }
 
-/*--------- Social icons ----------*/
+/*----------------------------------- Social icons -----------------------------------*/
 
 .social-icons {
   display: flex;
@@ -207,7 +207,7 @@ main {
   display: none;
 }
 
-/*-------- Scroll to Top ---------*/
+/*------------------------------------- Scroll to Top --------------------------------------*/
 .btn-scroll {
   display: none;
   position: fixed;
@@ -229,7 +229,7 @@ main {
   cursor: pointer;
 }
 
-/*--------- About -------------*/
+/*------------------------------------- About -----------------------------------------*/
 .section {
   width: 100%;
   max-width: 1280px;
@@ -285,7 +285,7 @@ main {
   font-style: normal;
 }
 
-/*----------- Skills -----------*/
+/*-------------------------------------- Skills -----------------------------------------*/
 .skills {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -306,7 +306,7 @@ main {
   width: 40px;
 }
 
-/*--------- Contact -----------*/
+/*----------------------------------------- Contact -------------------------------------*/
 .section-content .contact-heading {
   font-size: 50px;
   font-family: 'scotch-display', sans-serif;
@@ -361,7 +361,7 @@ main {
   left: 35px;
 }
 
-/*---------- Messages ----------*/
+/*------------------------------------ Messages ----------------------------------------*/
 .section-contact {
   padding: 150px 80px 100px;
 }
@@ -440,7 +440,7 @@ main {
   right: 10px;
 }
 
-/*-------- Form ----------*/
+/*-------------------------------- Form -------------------------------*/
 #contact-form {
   display: none;
 }
@@ -508,7 +508,7 @@ form .btn-contact {
   align-self: flex-end;
 }
 
-/* -------- Footer --------- */
+/* --------------------------------- Footer --------------------------------- */
 footer {
   width: 100%;
   display: flex;
@@ -521,7 +521,7 @@ footer {
   font-style: normal;
 }
 
-/*----------- Media Queries ------------*/
+/*------------------------------------ Media Queries ------------------------------*/
 @media all and (max-width: 1024px) {
   nav {
     padding: 20px 40px 5px;
@@ -588,7 +588,7 @@ footer {
   }
 }
 
-/*------ Hamburger button ----------*/
+/*--------------------------------- Hamburger button ---------------------------------*/
 @media all and (max-width: 930px) {
   .section {
     padding: 130px 40px;
@@ -639,7 +639,7 @@ footer {
     right: 0;
   }
 
-  /*--------------Social icons----------------*/
+  /*----------------------------------- Social icons ------------------------------*/
   .social-icons {
     display: flex;
     flex-direction: row;
@@ -658,7 +658,7 @@ footer {
   }
 }
 
-/*-------------- Mobile version -------------*/
+/*------------------------------------ Mobile version -----------------------------------*/
 @media all and (max-width: 760px) {
   nav {
     padding: 20px 20px 5px;
