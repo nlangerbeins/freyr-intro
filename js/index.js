@@ -1,3 +1,11 @@
+// Page Preloader
+window.addEventListener('DOMContentLoaded', function () {
+  setTimeout(function () {
+    window.scrollTo(0, 0);
+    document.querySelector('body').classList.add('loaded');
+  }, 3000);
+});
+
 // footer: get full year
 const today = new Date();
 const thisYear = today.getFullYear();
@@ -97,7 +105,7 @@ messageForm.addEventListener('submit', (e) => {
   e.target.reset();
 });
 
-// Scroll to top Button
+// Scroll to top
 const btnScrollToTop = document.querySelector('.btn-scroll');
 window.addEventListener('scroll', scrollFunction);
 
@@ -157,7 +165,6 @@ const projectSectionContent = projectSection.querySelector('.section-content');
 window.addEventListener('DOMContentLoaded', function () {
   fetch('https://api.github.com/users/nlangerbeins/repos')
     .then((response) => response.json())
-    // .then((response) => console.log(response));
     .then((repositories) => {
       for (let i = 0; i < arrOfProjects(repositories).length; i++) {
         const project = document.createElement('li');
