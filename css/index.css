@@ -92,21 +92,21 @@ li {
   -webkit-transform: translateY(-100%);
   transform: translateY(-100%);
   -webkit-transition: all 0.3s 1s ease-out;
-  transition: all 0.3s 1s ease-out;
+  transition: all 0.3s 2s ease-out;
 }
 
 .loaded .loader-wrapper .loader-section.section-left {
   -webkit-transform: translateX(-100%);
   transform: translateX(-100%);
   -webkit-transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-  transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: all 1.4s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 
 .loaded .loader-wrapper .loader-section.section-right {
   -webkit-transform: translateX(100%);
   transform: translateX(100%);
   -webkit-transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-  transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: all 1.4s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 
 .loaded .loader {
@@ -159,6 +159,8 @@ nav {
   font-family: 'scotch-display', sans-serif;
   font-weight: 500;
   font-style: normal;
+  opacity: 0;
+  padding-top: 20px;
 }
 
 .nav-logo {
@@ -166,6 +168,8 @@ nav {
   font-family: 'lust-sans', sans-serif;
   font-weight: 900;
   font-style: normal;
+  opacity: 0;
+  padding-top: 20px;
 }
 
 /*----------------------------- Hamburger button ----------------------------------*/
@@ -278,6 +282,7 @@ main {
   width: 100%;
   max-width: 500px;
   display: block;
+  opacity: 0;
 }
 
 /*----------------------------------- Social icons -----------------------------------*/
@@ -286,7 +291,7 @@ main {
   display: flex;
   flex-direction: column;
   position: fixed;
-  top: 40vh;
+  top: 45vh;
   left: 0;
   z-index: 11;
 }
@@ -402,6 +407,39 @@ main {
   width: 40px;
 }
 
+/*----------------------------------------- Project -------------------------------------------*/
+.projects {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.project {
+  border: 1px solid #ebebeb;
+  border-radius: 50px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.project:hover {
+  transform: scale(1.05, 1.05);
+  transition: all 0.5s ease-in-out;
+}
+
+.project a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 22px;
+  font-weight: 400;
+  margin: 20px 0 0;
+}
+
+.project a img {
+  width: 100%;
+  max-width: 600px;
+  padding: 0 15px;
+}
+
 /*----------------------------------------- Contact -------------------------------------*/
 .section-content .contact-heading {
   font-size: 50px;
@@ -476,7 +514,7 @@ main {
   padding: 0 0 0 50px;
   text-transform: uppercase;
   font-size: 18px;
-  font-family: 'lust-sans', sans-serif;
+  font-family: 'operetta-12', serif;
   font-weight: 500;
   font-style: normal;
 }
@@ -723,7 +761,13 @@ footer {
     transition: 0.3s;
   }
 
-  .nav-item {
+  .nav-menu li {
+    /* gsap mobile version */
+    padding-top: 0;
+    opacity: 1;
+  }
+
+  .nav-menu .nav-item {
     padding: 80px 0 0px;
   }
 
@@ -862,6 +906,14 @@ footer {
     width: 30px;
   }
 
+  .project {
+    margin: 0 30px;
+  }
+
+  .project a {
+    font-size: 18px;
+  }
+
   .section-content {
     font-weight: 300;
     font-style: normal;
@@ -997,6 +1049,15 @@ footer {
 
   .skill img {
     width: 20px;
+  }
+
+  .projects {
+    gap: 20px;
+  }
+
+  .project {
+    border-radius: 20px;
+    margin: 0 0px;
   }
 
   .section-content h2 {

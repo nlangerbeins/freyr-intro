@@ -1,3 +1,30 @@
+// AOS Animation
+AOS.init({
+  once: true,
+  duration: 1000,
+  delay: 300,
+  easing: 'ease-in-quad',
+});
+
+// GSAP Animation
+gsap.to('.titel-photo img', { delay: 5.5, duration: 4, opacity: 1 });
+gsap.to('  .nav-menu  li', {
+  duration: 1,
+  y: -10,
+  opacity: 1,
+  stagger: 0.3,
+  delay: 5,
+});
+gsap.to('.nav-logo', {
+  duration: 1,
+  y: -10,
+  opacity: 1,
+  delay: 4.5,
+});
+// gsap.to('.titel-header h1 span:first-child', {
+//   opacity: 1,
+// });
+
 // Page Preloader
 window.addEventListener('DOMContentLoaded', function () {
   setTimeout(function () {
@@ -168,19 +195,29 @@ window.addEventListener('DOMContentLoaded', function () {
     .then((repositories) => {
       for (let i = 0; i < arrOfProjects(repositories).length; i++) {
         const project = document.createElement('li');
-
+        project.classList.add('project');
+        console.log(repositories);
         let projectName = arrOfProjects(repositories)[i][0];
         let projectUrl = arrOfProjects(repositories)[i][1];
+
+        const owner = 'nlangerbeins';
+        const repo = projectName;
+        const branch = 'main';
+
+        // Get img from readme
+        const url = `https://raw.githubusercontent.com/${owner}/${repo}/${branch}/assets/img/mockup.png`;
 
         projectName = projectName.split('').slice(3).join('');
         projectName =
           projectName[0].toUpperCase() +
           projectName.slice(1).replaceAll('-', ' ');
 
-        project.innerHTML = `<a href="${projectUrl}" target="_blank">${projectName}</a>`;
+        project.innerHTML = `<a href="${projectUrl}" target="_blank">${projectName}
+        <img src=${url} alt="mockup ${projectName}"></a>`;
         projectList.appendChild(project);
       }
     })
+
     .catch((error) => {
       console.log('error');
       const errorProject = this.document.createElement('p');
@@ -192,7 +229,15 @@ window.addEventListener('DOMContentLoaded', function () {
 
 function arrOfProjects(repo) {
   const arr = [];
+
   repo.forEach((project) => arr.push([project.name, project.html_url]));
+
   const arrFiltered = arr.filter((i) => i[0].startsWith('js'));
   return arrFiltered;
 }
+
+// https://raw.githubusercontent.com/{owner}/{repo}/{branch}/README.md
+// const markupText = fetch(
+//   `https://raw.githubusercontent.com/nlangerbeins/js-paris-guide/main/README.md`,
+//   'text'
+// );
