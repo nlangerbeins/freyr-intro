@@ -235,9 +235,3 @@ function arrOfProjects(repo) {
   const arrFiltered = arr.filter((i) => i[0].startsWith('js'));
   return arrFiltered;
 }
-
-// https://raw.githubusercontent.com/{owner}/{repo}/{branch}/README.md
-// const markupText = fetch(
-//   `https://raw.githubusercontent.com/nlangerbeins/js-paris-guide/main/README.md`,
-//   'text'
-// );
