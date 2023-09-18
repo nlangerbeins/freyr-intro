@@ -1087,8 +1087,8 @@ footer {
     top: 60%;
   }
 
-  .nav-item {
-    padding: 25px 0 0px;
+  .nav-menu .nav-item {
+    padding: 30px 0 0px;
   }
 
   .section-content {
