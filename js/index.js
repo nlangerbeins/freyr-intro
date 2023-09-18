@@ -7,31 +7,29 @@ AOS.init({
 });
 
 // GSAP Animation
-gsap.to('.titel-photo img', { delay: 5.5, duration: 4, opacity: 1 });
+gsap.to('.titel-photo img', { delay: 3.5, duration: 4, opacity: 1 });
 gsap.to('  .nav-menu  li', {
   duration: 1,
   y: -10,
   opacity: 1,
   stagger: 0.3,
-  delay: 5,
+  delay: 3.0,
 });
+
 gsap.to('.nav-logo', {
   duration: 1,
   y: -10,
   opacity: 1,
-  delay: 4.5,
+  delay: 2.3,
 });
-// gsap.to('.titel-header h1 span:first-child', {
-//   opacity: 1,
-// });
 
 // Page Preloader
-window.addEventListener('DOMContentLoaded', function () {
+window.onload = function () {
   setTimeout(function () {
     window.scrollTo(0, 0);
     document.querySelector('body').classList.add('loaded');
-  }, 3000);
-});
+  }, 1000);
+};
 
 // footer: get full year
 const today = new Date();
