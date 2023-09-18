@@ -1,3 +1,38 @@
+// AOS Animation
+AOS.init({
+  once: true,
+  duration: 1000,
+  delay: 300,
+  easing: 'ease-in-quad',
+});
+
+// GSAP Animation
+gsap.to('.titel-photo img', { delay: 5.5, duration: 4, opacity: 1 });
+gsap.to('  .nav-menu  li', {
+  duration: 1,
+  y: -10,
+  opacity: 1,
+  stagger: 0.3,
+  delay: 5,
+});
+gsap.to('.nav-logo', {
+  duration: 1,
+  y: -10,
+  opacity: 1,
+  delay: 4.5,
+});
+// gsap.to('.titel-header h1 span:first-child', {
+//   opacity: 1,
+// });
+
+// Page Preloader
+window.addEventListener('DOMContentLoaded', function () {
+  setTimeout(function () {
+    window.scrollTo(0, 0);
+    document.querySelector('body').classList.add('loaded');
+  }, 3000);
+});
+
 // footer: get full year
 const today = new Date();
 const thisYear = today.getFullYear();
@@ -97,7 +132,7 @@ messageForm.addEventListener('submit', (e) => {
   e.target.reset();
 });
 
-// Scroll to top Button
+// Scroll to top
 const btnScrollToTop = document.querySelector('.btn-scroll');
 window.addEventListener('scroll', scrollFunction);
 
@@ -150,40 +185,53 @@ document.querySelector('.nav-logo').addEventListener('click', () => {
 });
 
 // Projects
+const projectSection = document.querySelector('#projects');
+const projectList = projectSection.querySelector('ul');
+const projectSectionContent = projectSection.querySelector('.section-content');
+
 window.addEventListener('DOMContentLoaded', function () {
-  const githubRequest = new XMLHttpRequest();
-  const projectSection = document.querySelector('#projects');
-  const projectList = projectSection.querySelector('ul');
+  fetch('https://api.github.com/users/nlangerbeins/repos')
+    .then((response) => response.json())
+    .then((repositories) => {
+      for (let i = 0; i < arrOfProjects(repositories).length; i++) {
+        const project = document.createElement('li');
+        project.classList.add('project');
+        console.log(repositories);
+        let projectName = arrOfProjects(repositories)[i][0];
+        let projectUrl = arrOfProjects(repositories)[i][1];
 
-  githubRequest.addEventListener('load', () => {
-    const repositories = JSON.parse(githubRequest.responseText);
+        const owner = 'nlangerbeins';
+        const repo = projectName;
+        const branch = 'main';
 
-    console.log(arrOfProjects(repositories));
+        // Get img from readme
+        const url = `https://raw.githubusercontent.com/${owner}/${repo}/${branch}/assets/img/mockup.png`;
 
-    for (let i = 0; i < arrOfProjects(repositories).length; i++) {
-      const project = document.createElement('li');
+        projectName = projectName.split('').slice(3).join('');
+        projectName =
+          projectName[0].toUpperCase() +
+          projectName.slice(1).replaceAll('-', ' ');
 
-      let projectName = arrOfProjects(repositories)[i][0];
-      let projectUrl = arrOfProjects(repositories)[i][1];
+        project.innerHTML = `<a href="${projectUrl}" target="_blank">${projectName}
+        <img src=${url} alt="mockup ${projectName}"></a>`;
+        projectList.appendChild(project);
+      }
+    })
 
-      projectName = projectName.split('').slice(3).join('');
-      projectName =
-        projectName[0].toUpperCase() +
-        projectName.slice(1).replaceAll('-', ' ');
-
-      project.innerHTML = `<a href="${projectUrl}" target="_blank">${projectName}</a>`;
-      projectList.appendChild(project);
-    }
-  });
-  githubRequest.open('GET', 'https://api.github.com/users/nlangerbeins/repos');
-  githubRequest.send();
+    .catch((error) => {
+      console.log('error');
+      const errorProject = this.document.createElement('p');
+      errorProject.innerText =
+        'Oops... Something went wrong. Please, try again later!';
+      projectSectionContent.appendChild(errorProject);
+    });
 });
 
 function arrOfProjects(repo) {
   const arr = [];
-  for (let i in repo) {
-    arr.push([repo[i].name, repo[i].html_url]);
-  }
+
+  repo.forEach((project) => arr.push([project.name, project.html_url]));
+
   const arrFiltered = arr.filter((i) => i[0].startsWith('js'));
   return arrFiltered;
 }

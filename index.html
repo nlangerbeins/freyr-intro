@@ -7,9 +7,19 @@
     <link rel="stylesheet" href="css/index.css" />
     <link rel="stylesheet" href="https://use.typekit.net/xxj1tsd.css" />
     <link rel="icon" href="./img/icons/favicon.png" />
+    <link
+      href="https://cdn.rawgit.com/michalsnik/aos/2.3.4/dist/aos.css"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <div class="wrapper">
+      <!-- Page Preloader -->
+      <div class="loader-wrapper">
+        <div class="loader" id="loader">Loading...</div>
+        <div class="loader-section section-left"></div>
+        <div class="loader-section section-right"></div>
+      </div>
       <!-- Header -->
       <header>
         <nav>
@@ -57,8 +67,11 @@
             <a href="https://github.com/nlangerbeins" target="_blank">
               <img src="./img/icons/github.svg" alt="github" />
             </a>
-            <a href="https://www.linkedin.com" target="_blank">
+            <!-- <a href="https://www.linkedin.com" target="_blank">
               <img src="./img/icons/linkedin.svg" alt="linkedin" />
+            </a> -->
+            <a href="mailto:natallia.langerbeins@gmail.com" target="_blank">
+              <img src="./img/icons/email.svg" alt="email" />
             </a>
             <a href="https://www.instagram.com" target="_blank">
               <img src="./img/icons/instagram.svg" alt="instagram" />
@@ -78,7 +91,7 @@
               <h2 class="section-heading">about</h2>
               <img src="./img/substract.svg" alt="circle" />
             </div>
-            <div class="section-content">
+            <div class="section-content" data-aos="fade-up">
               <p>
                 My name is Natallia, and I am an ambitious front-end developer
                 with a passion for web design and a keen eye for detail. I build
@@ -103,7 +116,7 @@
               <h2 class="section-heading">skills</h2>
               <img src="./img/substract.svg" alt="circle" />
             </div>
-            <div class="section-content">
+            <div class="section-content" data-aos="fade-up">
               <ul class="skills"></ul>
             </div>
           </div>
@@ -117,8 +130,8 @@
               <h2 class="section-heading">Projects</h2>
               <img src="./img/substract.svg" alt="circle" />
             </div>
-            <div class="section-content">
-              <ul class="skills"></ul>
+            <div class="section-content" data-aos="fade-up">
+              <ul class="projects"></ul>
             </div>
           </div>
         </section>
@@ -131,7 +144,7 @@
               <h2 class="section-heading">Contact</h2>
               <img src="./img/substract.svg" alt="circle" />
             </div>
-            <div class="section-content">
+            <div class="section-content" data-aos="fade-up">
               <h2 class="contact-heading">Let’s work together.</h2>
               <p class="contact-text">
                 Want to work together or have any questions?
@@ -188,8 +201,11 @@
         <a href="https://github.com/nlangerbeins" target="_blank">
           <img src="./img/icons/github.svg" alt="github" />
         </a>
-        <a href="https://www.linkedin.com" target="_blank">
+        <!-- <a href="https://www.linkedin.com" target="_blank">
           <img src="./img/icons/linkedin.svg" alt="linkedin" />
+        </a> -->
+        <a href="mailto:natallia.langerbeins@gmail.com" target="_blank">
+          <img src="./img/icons/email.svg" alt="email" />
         </a>
         <a href="https://www.instagram.com" target="_blank">
           <img src="./img/icons/instagram.svg" alt="instagram" />
@@ -198,6 +214,8 @@
       <!-- Footer -->
       <footer class="even"></footer>
     </div>
+    <script src="https://cdn.rawgit.com/michalsnik/aos/2.3.4/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="js/index.js"></script>
   </body>
 </html>
