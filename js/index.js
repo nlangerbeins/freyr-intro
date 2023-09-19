@@ -56,7 +56,7 @@ const skillsList = skillsSection.querySelector('ul');
 
 for (let i = 0; i < skills.length; i++) {
   const skill = document.createElement('li');
-  skill.innerHTML = `<img src='${skills[i].img}'> ${skills[i].skill}`;
+  skill.innerHTML = `<img src='${skills[i].img}' alt='${skills[i].skill} icon'> ${skills[i].skill}`;
   skill.classList.add('skill');
   skillsList.appendChild(skill);
 }
@@ -194,7 +194,7 @@ window.addEventListener('DOMContentLoaded', function () {
       for (let i = 0; i < arrOfProjects(repositories).length; i++) {
         const project = document.createElement('li');
         project.classList.add('project');
-        console.log(repositories);
+        // console.log(arrOfProjects(repositories));
         let projectName = arrOfProjects(repositories)[i][0];
         let projectUrl = arrOfProjects(repositories)[i][1];
 
@@ -227,7 +227,6 @@ window.addEventListener('DOMContentLoaded', function () {
 
 function arrOfProjects(repo) {
   const arr = [];
-
   repo.forEach((project) => arr.push([project.name, project.html_url]));
 
   const arrFiltered = arr.filter((i) => i[0].startsWith('js'));
